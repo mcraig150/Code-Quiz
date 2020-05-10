@@ -39,19 +39,19 @@ function timer() {
         
         if (timeLeft <= 0 || stop ===  true) {
             clearInterval(countdown);
-            time.textContent = "Finished!"
+            time.textContent = "Finished!";
         }
         else {
             timeLeft--;
+            time.textContent = "Seconds remaining: " + timeLeft;
         }
 
         if(wrong === true) {
             timeLeft -=  10;
             wrong = false;
-            console.log("test"); 
         }
 
-        time.textContent = "Seconds remaining: " + timeLeft;
+        
 
 
     },1000);
