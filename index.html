@@ -24,7 +24,7 @@
         <!-- Creating question jumbotron-->
         <div class="container">
             <div class="row">
-                <div class="jumbotron jumbotron-fluid">
+                <div class="jumbotron jumbotron-fluid" id="quiz">
 
                     <div>
                 
@@ -34,14 +34,30 @@
                         </div>
 
                         <div class="row mt-3">
-                            <button type="button" id="btn2" class="btn btn-primary btn-block"> yeet</button>
+                            <button type="button" id="btn2" class="btn btn-primary btn-block"></button>
                         </div>
 
                         <div class="row mt-3">
-                            <button type="button" id="btn3" class="btn btn-primary btn-block"> ya</button>
+                            <button type="button" id="btn3" class="btn btn-primary btn-block"></button>
                         </div>
 
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Creating Score Jumbotron-->
+        <div class="container">
+            <div class="row">
+                <div class="jumbotron jombotron-fluid" id="score">
+                    <h4 class="text-center">High Scores!</h4>
+                    <ul id="scores">
+                    </ul>
+                    <form id="input">
+                        <label for="name">Name: </label>
+                        <input type="text" id="name" name="name">
+                        <input type="submit" value="Submit" id="sbut">
+                    </form>
                 </div>
             </div>
         </div>

@@ -24,6 +24,14 @@ var count = 0;
 
 var stop = false;
 
+var qjumbo = document.getElementById("quiz");
+
+var sjumbo = document.getElementById("score");
+
+var form = document.querySelector("#input");
+
+var sub = document.querySelector("#sbut");
+
 
 //Starts countdown timer
 function timer() {
@@ -162,16 +170,52 @@ function update() {
         btn1.style.display = "none";
         btn2.style.display = "none";
         btn3.style.display = "none";
-
-        qst.style.textAlign = "center";
-        qst.textContent = "Finished your score is: " + score;
-
+        
         stop = true;
+
+        scores();
     }
 
 
 
 
 }
+function scores() {
+
+    qjumbo.style.display = "none";
+    sjumbo.style.display = "block";
+
+    form.addEventListener("click", function(){
+        event.preventDefault();
+
+    });
+
+    sub.addEventListener("click", function(){
+
+
+        localStorage.setItem("Score", document.getElementById("name").value + " : " + score);
+        
+        var userScore = localStorage.getItem("Score");
+
+        var ul = document.getElementById("scores");
+        var li = document.createElement("li");
+
+        li.appendChild(document.createTextNode("" + userScore));
+        ul.appendChild(li);
+
+        form.style.display = "none";
+
+
+    });
+
+
+
+
+
+
+
+
+}
+
 
 start();

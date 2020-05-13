@@ -2,3 +2,13 @@
 {
     display: none;
 }
+
+#quiz
+{
+    display: block;
+}
+
+#score
+{
+    display: none;
+}
