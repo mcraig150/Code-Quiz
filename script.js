@@ -32,6 +32,10 @@ var form = document.querySelector("#input");
 
 var sub = document.querySelector("#sbut");
 
+var points = new Array();
+
+
+
 
 //Starts countdown timer
 function timer() {
@@ -154,7 +158,7 @@ function quiz() {
 
 function update() {
 
-
+    //Updates questions on buttons
     if(count < quest.length -1){
 
         qst.textContent = " " + quest[count];
@@ -182,6 +186,7 @@ function update() {
 }
 function scores() {
 
+    //Adding scores to scoreboard
     qjumbo.style.display = "none";
     sjumbo.style.display = "block";
 
@@ -190,21 +195,45 @@ function scores() {
 
     });
 
+
+
     sub.addEventListener("click", function(){
 
+    
+     
 
-        localStorage.setItem("Score", document.getElementById("name").value + " : " + score);
-        
-        var userScore = localStorage.getItem("Score");
+
+
 
         var ul = document.getElementById("scores");
-        var li = document.createElement("li");
+        
 
-        li.appendChild(document.createTextNode("" + userScore));
-        ul.appendChild(li);
+        var me = document.getElementById("name").value;
+       
+
+        
+
+
+        if(localStorage.getItem("scored") != undefined){
+
+        points = localStorage.getItem("scored").split(",");
+
+        }
+
+        points.push(me + " : " + score);
+        
+
+        for(var i = 0; i < points.length; i++){
+            var li = document.createElement("li");
+            li.appendChild(document.createTextNode(points[i] + " " ));
+            ul.appendChild(li);
+            console.log("testing");            
+        }
+        
 
         form.style.display = "none";
-
+        
+        localStorage.setItem("scored", points)
 
     });
 
